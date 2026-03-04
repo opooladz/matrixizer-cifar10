@@ -1,3 +1,46 @@
+Orthognalizing (circular) convolutional layers for Muon optimizer: better mathematical justification and convergence per step than heuristic flattening
+
+Experiments run at `batch size 100`, no 
+Results for `uv run freqmuon.py --runs 1 --fft_size 8 --ns_steps 2`:
+
+```
+---------------------------------------------------------------------------------
+|  run     |  epoch  |  train_acc  |  val_acc  |  tta_val_acc  |  time_seconds  |
+---------------------------------------------------------------------------------
+|       0  |      0  |     0.8300  |   0.8110  |               |       77.2163  |
+|          |      1  |     0.8500  |   0.8478  |               |      109.5434  |
+|          |      2  |     0.8800  |   0.8757  |               |      141.7774  |
+|          |      3  |     0.9400  |   0.8812  |               |      176.5827  |
+|          |      4  |     0.8500  |   0.9026  |               |      210.3662  |
+|          |      5  |     0.9800  |   0.9114  |               |      241.2302  |
+|          |      6  |     0.9900  |   0.9217  |               |      272.5567  |
+|          |      7  |     0.9800  |   0.9255  |               |      303.8666  |
+|          |   eval  |     0.9800  |   0.9255  |       0.9306  |      306.4935  |
+---------------------------------------------------------------------------------
+```
+
+Compared to baseline results `uv run baseline_seed0.py`: 
+
+```
+---------------------------------------------------------------------------------
+|  run     |  epoch  |  train_acc  |  val_acc  |  tta_val_acc  |  time_seconds  |
+---------------------------------------------------------------------------------
+|       0  |      0  |     0.6300  |   0.4829  |               |       57.3968  |
+|          |      1  |     0.5900  |   0.5471  |               |       67.0426  |
+|          |      2  |     0.6800  |   0.6219  |               |       77.7858  |
+|          |      3  |     0.7000  |   0.6642  |               |       88.9285  |
+|          |      4  |     0.6400  |   0.6931  |               |       99.9038  |
+|          |      5  |     0.8400  |   0.8060  |               |      111.2075  |
+|          |      6  |     0.8900  |   0.8594  |               |      120.5020  |
+|          |      7  |     0.9300  |   0.9047  |               |      132.6597  |
+|          |   eval  |     0.9300  |   0.9047  |       0.9111  |      136.1138  |
+---------------------------------------------------------------------------------
+```
+
+---
+
+# Original README
+
 # CIFAR-10 Airbench 💨
 
 This repo contains the two fastest known algorithms ([edit: not anymore](https://github.com/hiverge/cifar10-speedrun/tree/main)) for training a neural network to 94% or 96% accuracy on CIFAR-10 using a single NVIDIA A100 GPU.

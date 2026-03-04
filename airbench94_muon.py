@@ -339,12 +339,12 @@ def evaluate(model, loader, tta_level=0):
 
 def main(run, model):
 
-    batch_size = 2000
+    batch_size = 100
     bias_lr = 0.053
     head_lr = 0.67
     wd = 2e-6 * batch_size
 
-    test_loader = CifarLoader("cifar10", train=False, batch_size=2000)
+    test_loader = CifarLoader("cifar10", train=False, batch_size=100)
     train_loader = CifarLoader("cifar10", train=True, batch_size=batch_size, aug=dict(flip=True, translate=2))
     if run == "warmup":
         # The only purpose of the first run is to warmup the compiled model, so we can use dummy data
@@ -439,7 +439,7 @@ if __name__ == "__main__":
 
     print_columns(logging_columns_list, is_head=True)
     main("warmup", model)
-    accs = torch.tensor([main(run, model) for run in range(200)])
+    accs = torch.tensor([main(run, model) for run in range(2)])
     print("Mean: %.4f    Std: %.4f" % (accs.mean(), accs.std()))
 
     log_dir = os.path.join("logs", str(uuid.uuid4()))
