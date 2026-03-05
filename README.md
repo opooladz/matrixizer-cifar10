@@ -1,3 +1,24 @@
+Matrixizer for Muon optimizer: better mathematical justification and convergence per step than heuristic flattening
+
+Experiments run at `batch size 100`, no 
+Results for `uv run matrixizer_muon.py --runs 1 --ns_steps 2`:
+
+```
+---------------------------------------------------------------------------------
+|  run     |  epoch  |  train_acc  |  val_acc  |  tta_val_acc  |  time_seconds  |
+---------------------------------------------------------------------------------
+|       0  |      0  |     0.8100  |   0.7957  |               |        1.6945  |
+|          |      1  |     0.8300  |   0.8300  |               |        2.9833  |
+|          |      2  |     0.9000  |   0.8556  |               |        4.2514  |
+|          |      3  |     0.9400  |   0.8545  |               |        5.5046  |
+|          |      4  |     0.9300  |   0.8894  |               |        6.7581  |
+|          |      5  |     0.9000  |   0.9127  |               |        8.0083  |
+|          |      6  |     0.9000  |   0.9216  |               |        9.2628  |
+|          |      7  |     0.9700  |   0.9296  |               |       10.5145  |
+|          |   eval  |     0.9700  |   0.9296  |       0.9373  |       10.6276  |
+---------------------------------------------------------------------------------
+```
+
 Orthognalizing (circular) convolutional layers for Muon optimizer: better mathematical justification and convergence per step than heuristic flattening
 
 Experiments run at `batch size 100`, no 
