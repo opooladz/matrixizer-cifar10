@@ -18,6 +18,8 @@ Results for `uv run matrixizer_muon.py --runs 1 --ns_steps 2`:
 |          |   eval  |     0.9700  |   0.9296  |       0.9373  |       10.6276  |
 ---------------------------------------------------------------------------------
 ```
+Ignore timings ran on diff gpus
+
 
 Orthognalizing (circular) convolutional layers for Muon optimizer: better mathematical justification and convergence per step than heuristic flattening
 
